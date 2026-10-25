@@ -71,7 +71,7 @@ PIPELINE [full] 🟢 ok · phase contract · ...
 checks: PASS 39 · FAIL 0 · WARN 0 · ...
 ```
 
-The exit code is 0. `git diff start main` shows that your edit is the whole difference between the two branches.
+The exit code is 0. `git diff origin/main -- docs` now prints nothing: your edit brought the task back to the state of `main`.
 
 ## What else is here
 
