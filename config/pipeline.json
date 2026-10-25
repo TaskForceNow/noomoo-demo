@@ -1,0 +1,140 @@
+{
+  "language": "en",
+  "git": {
+    "targetBranch": "main",
+    "branchPattern": "feature/<KEY>-<slug>",
+    "serviceBranches": [
+      "chore/**",
+      "docs/**",
+      "release/**"
+    ],
+    "commitTemplate": "<KEY>: <subject>",
+    "remoteAlias": "",
+    "isolation": "worktree"
+  },
+  "commands": {
+    "test": "",
+    "lint": "",
+    "typecheck": "",
+    "gate": "npm run task:ready --",
+    "format": ""
+  },
+  "judge": {
+    "planModel": "",
+    "taskModel": ""
+  },
+  "layout": {
+    "roots": [
+      "hub",
+      "src",
+      "server",
+      "frontend",
+      "apps",
+      "packages",
+      "infra",
+      "bin",
+      "scripts",
+      "docs",
+      "prisma",
+      "tests",
+      "bridge",
+      "e2e",
+      ".githooks",
+      ".claude"
+    ]
+  },
+  "architecture": {
+    "required": false,
+    "since": "",
+    "slices": []
+  },
+  "coverage": {
+    "completenessFrom": ""
+  },
+  "readiness": {
+    "strict": true
+  },
+  "plan": {
+    "maxTestItems": 0,
+    "honestAnchorsSince": "2026-09-16",
+    "reviewFrom": ""
+  },
+  "review": {
+    "codeArtifact": {
+      "required": true,
+      "since": "2026-09-16"
+    }
+  },
+  "useCases": {
+    "guarantees": {
+      "required": false,
+      "since": ""
+    }
+  },
+  "raw": {
+    "dir": "docs/raw",
+    "commit": false
+  },
+  "intake": {
+    "quotes": false
+  },
+  "data": {
+    "schema": "",
+    "declaration": {
+      "required": false,
+      "since": ""
+    }
+  },
+  "stateMachine": {
+    "required": false
+  },
+  "roles": {
+    "owner": [],
+    "techLead": [],
+    "implementers": [],
+    "testers": []
+  },
+  "stamps": {
+    "since": "2026-10-25",
+    "doneTraceFrom": "64d5ff1d35ca04df925d269ede2ef72dc817a879",
+    "requireSignedCommits": false
+  },
+  "lightLane": {
+    "branches": [
+      "fix/**"
+    ],
+    "maxFiles": 30,
+    "maxLines": null,
+    "infra": [
+      ".github/**",
+      "infra/**",
+      "deploy/**",
+      "docker/**",
+      "scripts/**",
+      "*.config.*",
+      "**/*.config.*"
+    ]
+  },
+  "stand": {
+    "up": "",
+    "ready": {
+      "url": "",
+      "expect": 200,
+      "timeoutSec": 120,
+      "identity": ""
+    },
+    "baseUrl": "",
+    "auth": null,
+    "reset": "",
+    "down": "",
+    "ui": null
+  },
+  "stageOptions": {
+    "reports": {
+      "standardFrom": "REPORT-001"
+    },
+    "tasks": {
+      "styleFrom": "TASK-001"
+    }
+  }
+}

@@ -1,1 +1,26 @@
 node_modules/
+
+# noomoo: operator-only files (customer and financial documents remain local)
+docs/raw/
+docs/deliverables/
+*.md.bak
+
+# noomoo: transient run artifacts (overwritten by each gate run)
+docs/validation/artifacts/
+docs/validation/STATUS.md
+docs/validation/history.jsonl
+docs/validation/health.jsonl
+docs/validation/findings.json
+docs/validation/events.jsonl
+docs/validation/telemetry-sent.json
+docs/validation/hidden-by-phase.json
+/test-output.log
+docs/tasks/reviews/*.cache.json
+docs/tasks/reviews/*.raw.txt
+.worktrees/
+.agent/context/status.md
+.agent/context/current-state.md
+
+# noomoo: secrets
+.env
+.env.local
