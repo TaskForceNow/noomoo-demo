@@ -86,6 +86,7 @@ The exit code is 0. `git diff origin/main -- docs` now prints nothing: your edit
 - `docs/` holds the requirement, use case, feature and task that the gate reads.
 - `config/pipeline.json` is the noomoo configuration; `npx noomoo setup --yes` wrote it.
 - `.githooks/` and `.github/workflows/noomoo.yml` run the same gate before a commit and in CI.
+- `media/` holds the recording shown at the top of this page, as GIF and WebM.
 
 The next step after the gate is the task itself. With the noomoo plugin for Claude Code, `/noomoo:task TASK-001` carries it from plan to pull request. See the [quickstart](https://noomoo.dev/docs/quickstart.html) and the [plugin page](https://noomoo.dev/docs/plugin.html).
 
