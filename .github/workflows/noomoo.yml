@@ -1,0 +1,62 @@
+name: Project validation
+
+# noomoo deployed — workflow steps come from the project pipeline commands in
+# config/pipeline.json. Edit them there; this file only runs them in CI.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Jobs read code, PRs, and workflow runs; the organization default may grant write access to the token.
+permissions:
+  contents: read
+  pull-requests: read
+  actions: read
+
+jobs:
+  contour:
+    name: contour
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history is needed to trace Git changes during repository validation.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - name: Validate project documents
+        run: npx noomoo validate
+        # Server-side checks need a token to verify commit signatures and merge status.
+        # Only GitHub has that information; without a token, these checks fail explicitly.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Show test results in the workflow summary, not just the logs. Use always()
+      # so the summary still runs when tests fail. Read the test summary line, not the
+      # last line of the file, which contains the duration.
+      - name: Test summary
+        if: always()
+        run: |
+          line=$(grep -m1 -E '^[[:space:]]*Tests[[:space:]]+' test-output.log 2>/dev/null || true)
+          echo "tests: ${line:-could not read test summary}" >> "$GITHUB_STEP_SUMMARY"
+
+  # Post-merge check: branch protection is unavailable on the free plan, so a merge
+  # can bypass failing checks. CI detects violations after the merge.
+  merge-green:
+    name: Verify merge passed CI
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - name: Verify merge
+        run: npx noomoo merge-green
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI_WORKFLOW_NAME: Project validation

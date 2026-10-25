@@ -1,0 +1,7 @@
+# Merge rules for project documentation.
+#
+# Development journal entries do not need a merge driver: each entry is a separate file under
+# docs/reports/journal/, so two branches cannot conflict on the same entry.
+#
+# The work inventory (docs/BACKLOG.md and its archive) is deliberately excluded: its entries
+# record owner decisions. Combining two versions of an entry could silently discard a decision.

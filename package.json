@@ -1,0 +1,24 @@
+{
+  "name": "noomoo-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Watch the noomoo gate turn from red to green on a tiny repository",
+  "license": "Apache-2.0",
+  "repository": "github:TaskForceNow/noomoo-demo",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "noomoo": "3.0.1"
+  },
+  "scripts": {
+    "validate": "noomoo validate",
+    "task:ready": "noomoo task-ready",
+    "plan:ready": "noomoo plan-ready",
+    "phase:check": "noomoo phase-check",
+    "axis:close": "noomoo close-axis",
+    "axis:reopen": "noomoo reopen",
+    "context:status": "noomoo context-status",
+    "doctor": "noomoo doctor"
+  }
+}
