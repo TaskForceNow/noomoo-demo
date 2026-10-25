@@ -2,7 +2,7 @@
 
 - Zone: [BE]
 - Feature: FEAT-001
-- Covers: REQ-001-1; REQ-001-2; UC-001
+- Covers: REQ-001-1; REQ-001-3; UC-001
 - Depends on: —
 - Status: ◻ todo
 
