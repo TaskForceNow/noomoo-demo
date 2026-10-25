@@ -45,6 +45,8 @@ checks: PASS 38 · FAIL 1 · WARN 0 · ...
 
 The exit code is 1. `docs/requirements/req-001-slug-generation.md` declares only REQ-001-1 and REQ-001-2, so the task points at nothing.
 
+The same gate runs in the `pre-commit` and `pre-push` hooks, so they refuse this broken state. The one commit on `start` was pushed with the hooks turned off, on purpose.
+
 ## 4. Fix the task
 
 Open `docs/tasks/task-001-implement-slugify.md` and change the `Covers` line:
