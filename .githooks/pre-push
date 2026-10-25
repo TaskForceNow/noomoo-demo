@@ -1,0 +1,16 @@
+#!/bin/sh
+noomoo_dir=$PWD
+noomoo_found=
+while :; do
+  for noomoo_bin in noomoo noomoo.exe noomoo.bunx; do
+    [ -e "$noomoo_dir/node_modules/.bin/$noomoo_bin" ] && noomoo_found=1
+  done
+  grep -qsF '"noomoo"' "$noomoo_dir/.pnp.cjs" "$noomoo_dir/.pnp.data.json" && noomoo_found=1
+  if [ -n "$noomoo_found" ] || [ "$noomoo_dir" = / ]; then break; fi
+  noomoo_dir=$(dirname "$noomoo_dir")
+done
+if [ -z "$noomoo_found" ]; then
+  echo "noomoo is not installed, check skipped" >&2
+  exit 0
+fi
+npx --offline --no-install noomoo validate --profile full || exit 1

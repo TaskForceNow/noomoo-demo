@@ -1,0 +1,4 @@
+# Placeholder for an empty noomoo layer.
+# Git tracks files, not directories. Without this file, the layer will be missing after checkout,
+# and pipeline validation will fail with "Directory not found". You may leave this file in place
+# after adding documents to the layer; the gate only checks *.md files.
