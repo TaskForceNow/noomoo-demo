@@ -2,6 +2,10 @@
 
 This repository shows the [noomoo](https://noomoo.dev) gate turn from red to green. It has noomoo 3.0.1 installed and one task, TASK-001. On the `start` branch, the task claims to cover a requirement that does not exist, so the gate fails. You fix one line, and the gate passes.
 
+![The noomoo gate goes red on the start branch, then green after one line is fixed](media/noomoo-red-green.gif)
+
+The same recording as video: [`media/noomoo-red-green.webm`](media/noomoo-red-green.webm).
+
 You need Node.js 20 or newer and git. Nothing else: no account, no token, no Claude Code.
 
 ## 1. Clone the `start` branch
