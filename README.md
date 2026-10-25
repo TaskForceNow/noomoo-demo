@@ -17,10 +17,12 @@ cd noomoo-demo
 npm ci
 ```
 
-Expected output ends with:
+Expected output (the time differs):
 
 ```
 added 1 package, and audited 2 packages in 1s
+
+found 0 vulnerabilities
 ```
 
 noomoo is the only dependency, and it has no runtime dependencies of its own.
